@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title">Restaurants :</h1>
+
+    <% @restaurants.each do |restaurant| %>
+      <div class="row">
+        <div class="col-xs-3">
+        <h6>Name</h6>
+        <p><%= restaurant.name %></p>
+        </div>
+        <div class="col-xs-3">
+        <h6>Address</h6>
+        <p><%= restaurant.address %></p>
+        </div>
+        <div class="col-xs-3">
+        <h6>Phone number</h6>
+        <p><%= restaurant.phone_number %></p>
+        </div>
+        <div class="col-xs-3">
+        <h6>Category</h6>
+        <p><%= restaurant.category %></p>
+        </div>
+        <div class="col-xs-4">
+        <p><%= link_to 'Show', restaurant %></p>
+        </div>
+        <div class="col-xs-4">
+        <p><%= link_to 'Edit', edit_restaurant_path(restaurant) %></p>
+        </div>
+        <div class="col-xs-4">
+        <p><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+        </div>
+      </div>
+    <% end %>
+
+
+
+    <% @reviews.each do |review| %>
+        <h6><%= review.content %></h6>
+        <h6><%= review.restaurant.name %></h6>
+      <% end %>
+    <br>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>

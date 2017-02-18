@@ -1,0 +1,13 @@
+<h1>Editing Restaurant</h1>
+
+<%= render 'form', restaurant: @restaurant %>
+<%= simple_form_for [@restaurant, Review.new] do |f| %>
+<%= f.input :content %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
+
+
+
+
+<%= link_to 'Show', @restaurant %> |
+<%= link_to 'Back', restaurants_path %>
